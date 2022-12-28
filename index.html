@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			body{
+				background-color: blue;
+			}
+			.box{
+				position:absolute;
+				top:0;
+				right:0;
+				bottom:0;
+				left:0;
+				width:600px;
+				height:400px;
+				margin:auto;
+				text-align:center;
+				border:2px solid black;
+				box-shadow: 2px 10px 5px green;
+				border-radius: 50px;
+				border: 10px solid yellow;
+				border-color: cadetblue;
+			}
+			.time{
+				font-size: 150px;
+				margin-top:20px;
+			}
+			.date{
+				font-size: 50px;
+				color: aliceblue;
+				text-align: center;
+				margin-top: 100px;
+			}
+			</style>
+	</head>
+	<body>
+		<div class="box">
+		<div class="time"></div>
+		<div class="date"></div>
+		</div>
+		
+		<script>
+		var time=document.querySelector('.time');
+		var date=document.querySelector('.date');
+		function updatedTime(){
+			var now=new Date();
+			var hours=now.getHours();
+			var minutes=now.getMinutes();
+			var seconds=now.getSeconds();
+			time.innerHTML=perfix0(hours)+':'+ perfix0(minutes) +':'+perfix0(seconds);
+			
+			var year=now.getFullYear();
+			var month=now.getMonth();
+			var day=now.getDate();
+			var week=now.getDay();
+			date.innerHTML=year + '年' + perfix0(month+1) + '月' + perfix0(day) + '日'+getWeek(week);
+		}
+		updatedTime();
+		setInterval(updatedTime, 1000);
+		
+		function perfix0(n){
+			return n < 10 ? '0' + n :n;
+		}
+		function getWeek(n){
+			switch(n){
+				case 0:
+					return '星期日';
+				case 1:
+					return '星期一';
+				case 2:
+					return '星期二';
+				case 3:
+					return '星期三';
+				case 4:
+					return '星期四';
+				case 5:
+					return '星期五';
+				case 6:
+					return '星期六';
+			}
+		}
+		</script>
+	</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../images/logo.ico" />
+    <script type="text/javascript" src="homework06.js"></script>
+    <link rel="stylesheet" href="homework06.css">
+    <title>第六次作业</title>
+</head>
+
+<body>
+    <p>企业发放的奖金根据利润提成。<br/><br/> 1、利润低于或等于10万元时，奖金可提10%；
+        <br/> 2、利润高于10万元，低于20万元时，低于10万元的部分按10%提成，高于10万元的部分，可提成7.5%；
+        <br/> 3、20万到40万之间时，高于20万元的部分，可提成5%；
+        <br/> 4、40万到60万之间时高于40万元的部分，可提成3%；
+        <br/> 5、60万到100万之间时，高于60万元的部分，可提成1.5%；
+        <br/> 6、高于100万元时，超过100万元的部分按1%提成。
+        <br/><br/> 假设当月利润为 <input id="data" type="text" value="374483"> 元，求应发放奖金总数？ (保留两位小数）
+
+        <!-- <button id="btn">Try it</button> -->
+    </p>
+    应发奖金为：<span id="result"></span>
+</body>
+
+</html>
